@@ -26,8 +26,8 @@ export const Navbar = () => {
   const navLinks = [
     { path: "/cinema-stream-scene/", label: "Home", icon: Home },
     { path: "/cinema-stream-scene/movies", label: "Movies", icon: Film },
-    { path: "/anime", label: "Anime", icon: PlayCircle },
-    { path: "/cinema-stream-scene//watchlist", label: "Watchlist", icon: BookmarkIcon },
+    { path: "/cinema-stream-scene/anime", label: "Anime", icon: PlayCircle },
+    { path: "/cinema-stream-scene/watchlist", label: "Watchlist", icon: BookmarkIcon },
     { path: "/cinema-stream-scene/settings", label: "Settings", icon: Settings },
   ];
 
