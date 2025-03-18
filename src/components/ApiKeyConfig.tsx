@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const LOCAL_STORAGE_KEY = "stream_vibe_api_keys";
 
 export const ApiKeyConfig = () => {
-  const [apiKey, setApiKey] = useState("");
+  const [apiKey, setApiKey] = useState(process.env.REACT_APP_API_KEY || "");
   const [apiName, setApiName] = useState("");
   const [showApiKey, setShowApiKey] = useState(false);
   const [savedApiKeys, setSavedApiKeys] = useState<ApiConfig[]>([]);
@@ -78,6 +78,21 @@ export const ApiKeyConfig = () => {
     navigator.clipboard.writeText(text);
     setCopied(id);
     setTimeout(() => setCopied(null), 2000);
+  };
+
+  const fetchMovies = () => {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${apiKey}`
+      }
+    };
+
+    fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
   };
 
   return (
