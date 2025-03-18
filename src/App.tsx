@@ -30,7 +30,7 @@ const App = () => {
             <Route path="/cinema-stream-scene/" element={<Index />} />
             <Route path="/cinema-stream-scene/movie/:id" element={<MovieDetail />} />
             <Route path="/cinema-stream-scene/settings" element={<Settings />} />
-            <Route path="/cinema-stream-scene//watchlist" element={<Watchlist />} />
+            <Route path="/cinema-stream-scene/watchlist" element={<Watchlist />} />
             <Route path="/cinema-stream-scene/anime" element={<AnimeList />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
