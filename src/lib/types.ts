@@ -17,3 +17,5 @@ export interface ApiConfig {
   name: string;
   isActive: boolean;
 }
+
+export type Theme = 'light' | 'dark';
