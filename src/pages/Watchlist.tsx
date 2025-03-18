@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Trash2, Film, List } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { 
+import {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
@@ -24,14 +24,14 @@ const Watchlist = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
-      
+
       <main className="flex-grow container mx-auto px-4 pt-24 pb-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
           <div className="flex items-center gap-2">
             <List className="text-primary" size={24} />
             <h1 className="text-3xl font-bold">My Watchlist</h1>
           </div>
-          
+
           {watchlist.length > 0 && (
             <AlertDialog>
               <AlertDialogTrigger asChild>
@@ -57,17 +57,17 @@ const Watchlist = () => {
             </AlertDialog>
           )}
         </div>
-        
+
         <Separator className="mb-8" />
-        
+
         {watchlist.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {watchlist.map((content) => (
               <div key={content.id} className="glass-panel rounded-lg overflow-hidden group">
                 <div className="relative">
-                  <Link to={`/movie/${content.id}`}>
-                    <img 
-                      src={content.posterPath} 
+                  <Link to={`/cinema-stream-scene/movie/${content.id}`}>
+                    <img
+                      src={content.posterPath}
                       alt={content.title}
                       className="w-full aspect-[2/3] object-cover transition-transform group-hover:scale-105"
                     />
@@ -82,7 +82,7 @@ const Watchlist = () => {
                   </Button>
                 </div>
                 <div className="p-4">
-                  <Link to={`/movie/${content.id}`}>
+                  <Link to={`/cinema-stream-scene/movie/${content.id}`}>
                     <h3 className="font-semibold truncate hover:text-primary transition-colors">
                       {content.title}
                     </h3>
@@ -108,12 +108,12 @@ const Watchlist = () => {
               Start exploring and add your favorite movies and shows
             </p>
             <Button asChild>
-              <Link to="/">Browse Content</Link>
+              <Link to="/cinema-stream-scene/">Browse Content</Link>
             </Button>
           </div>
         )}
       </main>
-      
+
       <Footer />
     </div>
   );

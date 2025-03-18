@@ -17,7 +17,7 @@ export const SearchBar = ({ isOpen, onClose }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<Content[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
-  
+
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
@@ -26,7 +26,7 @@ export const SearchBar = ({ isOpen, onClose }: SearchBarProps) => {
 
   useEffect(() => {
     if (searchQuery.length > 1) {
-      const filteredContent = MOCK_CONTENT.filter(content => 
+      const filteredContent = MOCK_CONTENT.filter(content =>
         content.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         content.genre.some(g => g.toLowerCase().includes(searchQuery.toLowerCase()))
       );
@@ -65,10 +65,10 @@ export const SearchBar = ({ isOpen, onClose }: SearchBarProps) => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             {searchQuery && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="absolute right-2 top-1/2 -translate-y-1/2" 
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute right-2 top-1/2 -translate-y-1/2"
                 onClick={handleClear}
               >
                 <X size={18} />
@@ -85,23 +85,23 @@ export const SearchBar = ({ isOpen, onClose }: SearchBarProps) => {
           {searchResults.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {searchResults.map((item) => (
-                <Link 
-                  to={`/movie/${item.id}`} 
+                <Link
+                  to={`/cinema-stream-scene/movie/${item.id}`}
                   key={item.id}
                   onClick={handleItemClick}
                   className="glass-panel flex gap-4 p-3 rounded-lg hover:bg-primary/10 transition-all"
                 >
-                  <img 
-                    src={item.posterPath} 
-                    alt={item.title} 
-                    className="w-16 h-24 object-cover rounded-md" 
+                  <img
+                    src={item.posterPath}
+                    alt={item.title}
+                    className="w-16 h-24 object-cover rounded-md"
                   />
                   <div className="flex flex-col justify-center">
                     <h3 className="font-semibold">{item.title}</h3>
                     <div className="flex flex-wrap gap-1 mt-1">
                       {item.genre.slice(0, 2).map((genre, idx) => (
-                        <span 
-                          key={idx} 
+                        <span
+                          key={idx}
                           className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary"
                         >
                           {genre}

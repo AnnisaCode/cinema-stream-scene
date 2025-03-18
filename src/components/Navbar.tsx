@@ -24,11 +24,11 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { path: "/", label: "Home", icon: Home },
-    { path: "/movies", label: "Movies", icon: Film },
+    { path: "/cinema-stream-scene/", label: "Home", icon: Home },
+    { path: "/cinema-stream-scene/movies", label: "Movies", icon: Film },
     { path: "/anime", label: "Anime", icon: PlayCircle },
-    { path: "/watchlist", label: "Watchlist", icon: BookmarkIcon },
-    { path: "/settings", label: "Settings", icon: Settings },
+    { path: "/cinema-stream-scene//watchlist", label: "Watchlist", icon: BookmarkIcon },
+    { path: "/cinema-stream-scene/settings", label: "Settings", icon: Settings },
   ];
 
   return (
@@ -41,7 +41,7 @@ export const Navbar = () => {
       >
         <div className="container mx-auto px-4 h-full flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/cinema-stream-scene/" className="flex items-center gap-2">
             <span className="text-primary text-2xl font-bold bg-clip-text">
               StreamVibe
             </span>
@@ -52,15 +52,15 @@ export const Navbar = () => {
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive = location.pathname === link.path;
-              
+
               return (
                 <Link
                   key={link.path}
                   to={link.path}
                   className={cn(
                     "px-4 py-2 rounded-md flex items-center gap-2 transition-all duration-200",
-                    isActive 
-                      ? "text-primary bg-primary/10" 
+                    isActive
+                      ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                   )}
                 >
@@ -73,28 +73,28 @@ export const Navbar = () => {
 
           {/* Search, theme toggle and mobile menu button */}
           <div className="flex items-center gap-2">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="rounded-full" 
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full"
               onClick={() => setIsSearchOpen(true)}
             >
               <Search size={20} />
             </Button>
-            
-            <Button 
-              variant="ghost" 
-              size="icon" 
+
+            <Button
+              variant="ghost"
+              size="icon"
               className="rounded-full"
               onClick={toggleTheme}
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
-            
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="rounded-full md:hidden" 
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -109,7 +109,7 @@ export const Navbar = () => {
               {navLinks.map((link) => {
                 const Icon = link.icon;
                 const isActive = location.pathname === link.path;
-                
+
                 return (
                   <Link
                     key={link.path}
@@ -117,8 +117,8 @@ export const Navbar = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
                       "flex items-center gap-3 p-3 rounded-lg transition-all",
-                      isActive 
-                        ? "bg-primary/10 text-primary" 
+                      isActive
+                        ? "bg-primary/10 text-primary"
                         : "text-muted-foreground hover:bg-secondary hover:text-foreground"
                     )}
                   >
@@ -131,7 +131,7 @@ export const Navbar = () => {
           </div>
         )}
       </header>
-      
+
       {/* Search Overlay */}
       <SearchBar isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
